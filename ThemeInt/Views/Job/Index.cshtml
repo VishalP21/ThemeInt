@@ -1,0 +1,37 @@
+﻿
+@model ThemeInt.BussinesEntity.JobInformation
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Job Add</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form asp-action="Index" asp-controller="Job" method="post">
+        <div class="card-body">
+            <input type="text" asp-for="JobId" />
+            <div class="form-group">
+                <label for="exampleInputEmail1">Title</label>
+                <input type="text" asp-for="JobTitle" class="form-control" id="exampleInputEmail1" placeholder="Title">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Discription</label>
+                <input type="text" asp-for="JobDiscription" class="form-control" id="exampleInputEmail1" placeholder="Discription">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Job Type</label>
+                <select  asp-for="JobTypeId" asp-items="Model.Jobtype" class="form-control" ></select>
+            </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

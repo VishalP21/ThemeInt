@@ -1,0 +1,30 @@
+﻿@model List<ThemeInt.BussinesEntity.JobInformation>
+
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>JobTitle</th>
+            <th>JobDiscription</th>
+            <th>Jobtype</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+        <tr>
+            <td>@a.JobTitle</td>
+            <td>@a.JobDiscription</td>
+            <td></td>
+                <td><a asp-action="delete" asp-controller="Job" asp-route-JobID="@a.JobId" class="btn btn-block btn-danger">Delete</a></td>
+                <td><a asp-action="edit" asp-controller="Job" asp-route-Id="@a.JobId" class="btn btn-block btn-danger">Edit</a></td>        
+            </tr>
+        }
+    </tbody>
+</table>

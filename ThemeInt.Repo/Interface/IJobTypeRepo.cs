@@ -7,16 +7,8 @@ using ThemeInt.DataBase;
 
 namespace ThemeInt.Repo.Interface
 {
-	public interface IJobRepo
+	public interface IJobTypeRepo
 	{
-		List<JobMaster> GetJobs();
-
-		bool addjob(JobMaster job);
-
-		bool removejob(int jobid);
-
-		JobMaster GetJob(int jobid);
-
-		bool updatejob(JobMaster jobMaster);
+		List<JobType> GetJobsType();
 	}
 }
