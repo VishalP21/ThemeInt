@@ -1,7 +1,19 @@
+using ThemeInt.BussinesService.ConCreate;
+using ThemeInt.BussinesService.Interface;
+using ThemeInt.DataBase;
+using ThemeInt.Repo.ConCreate;
+using ThemeInt.Repo.Interface;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IJobTypeRepo, JobTypeRepo>();
+builder.Services.AddScoped<IJobRepo, JobRepo>();
+builder.Services.AddScoped<IJobTypeservice, JobTypeService>();
+builder.Services.AddScoped<IJobService, JobService>();
+builder.Services.AddDbContext<JobPortalEfContext>();
 
 var app = builder.Build();
 

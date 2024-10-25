@@ -11,6 +11,7 @@ namespace ThemeInt.Common
 			master.JobTypeId = jobInformation.JobTypeId;
 			master.JobTitle = jobInformation.JobTitle;
 			master.JobDiscription= jobInformation.JobDiscription;
+			master.JobId = jobInformation.JobId;	
 			return master;
 		 
 		}

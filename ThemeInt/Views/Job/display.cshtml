@@ -23,7 +23,7 @@
             <td>@a.JobDiscription</td>
             <td></td>
                 <td><a asp-action="delete" asp-controller="Job" asp-route-JobID="@a.JobId" class="btn btn-block btn-danger">Delete</a></td>
-                <td><a asp-action="edit" asp-controller="Job" asp-route-Id="@a.JobId" class="btn btn-block btn-danger">Edit</a></td>        
+                <td><a asp-action="edit" asp-controller="Job" asp-route-JobID="@a.JobId" class="btn btn-block btn-danger">Edit</a></td>
             </tr>
         }
     </tbody>

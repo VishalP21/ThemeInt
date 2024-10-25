@@ -12,9 +12,9 @@ namespace ThemeInt.Repo.ConCreate
 	{
 		private readonly JobPortalEfContext jobPortalEfContext;
 
-		public JobTypeRepo()
+		public JobTypeRepo(JobPortalEfContext jobPortalEf)
 		{
-			jobPortalEfContext = new JobPortalEfContext();
+			jobPortalEfContext = jobPortalEf;
 		}
 		public List<JobType> GetJobsType()
 		{

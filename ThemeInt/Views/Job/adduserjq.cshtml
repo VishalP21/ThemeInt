@@ -1,6 +1,5 @@
-﻿
-@{
-    Layout = "_AdminLayout";
+﻿@{
+    Layout = null;
 }
 
 @model ThemeInt.BussinesEntity.JobInformation
@@ -28,13 +27,13 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Job Type</label>
-                <select  asp-for="JobTypeId" asp-items="Model.Jobtype" class="form-control" ></select>
+                <select asp-for="JobTypeId" asp-items="Model.Jobtype" class="form-control"></select>
             </div>
             </div>
-        <!-- /.card-body -->
+            <!-- /.card-body -->
 
-        <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
     </form>
 </div>

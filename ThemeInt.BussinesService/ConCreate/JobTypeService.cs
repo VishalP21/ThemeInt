@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 using ThemeInt.BussinesEntity;
 using ThemeInt.BussinesService.Interface;
 using ThemeInt.Repo.ConCreate;
+using ThemeInt.Repo.Interface;
 
 namespace ThemeInt.BussinesService.ConCreate
 {
 	public class JobTypeService : IJobTypeservice
 	{
-		private readonly JobTypeRepo jobTypeRepo;
+		private readonly IJobTypeRepo jobTypeRepo;
 
-		public JobTypeService()
+		public JobTypeService(IJobTypeRepo _jobTypeRepo)
 		{
-			jobTypeRepo = new JobTypeRepo();
+			jobTypeRepo = _jobTypeRepo;
 		}
 
 		public List<SelectListItem> jobIType()

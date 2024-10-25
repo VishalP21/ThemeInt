@@ -1,18 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ThemeInt.BussinesEntity;
 using ThemeInt.BussinesService.ConCreate;
+using ThemeInt.BussinesService.Interface;
 
 namespace ThemeInt.Controllers
 {
     public class JobController : Controller
     {
-        private readonly JobService jobService;
-        private readonly JobTypeService jobTypeService;
+        private readonly IJobService jobService;
+        private readonly IJobTypeservice jobTypeService;
 
-        public JobController()
+        public JobController(IJobService _jobService, IJobTypeservice _jobTypeService)
         {
-            jobService = new JobService();
-            jobTypeService = new JobTypeService();  
+            jobService = _jobService;
+            jobTypeService = _jobTypeService;  
         }
 
 
@@ -34,7 +35,7 @@ namespace ThemeInt.Controllers
             {
                 return View(jobInformation);
             }
-            if (jobInformation.JobId != null)
+            if (jobInformation.JobId > 0)
             {
                 jobService.updatejob(jobInformation);
             }
@@ -60,7 +61,45 @@ namespace ThemeInt.Controllers
         public IActionResult edit(int jobID)
         {
            var data = jobService.GetJob(jobID);
-            return RedirectToAction("data", "Index");
+            data.Jobtype = jobTypeService.jobIType();
+            return View( "Index", data);
         }
+
+
+        // Display with jQuery
+
+        public IActionResult Abc()
+        {
+            var data = jobService.GetJobs();  
+            return Json(new {data = data});
+        }
+        
+        public IActionResult Print()
+        {
+            return View();
+        }
+
+
+        // Add With jQuery
+        [HttpGet]
+
+        public IActionResult adduserjq()
+        {
+            JobInformation jobInformation = new JobInformation();
+            jobInformation.Jobtype = jobTypeService.jobIType();
+            return View(jobInformation);
+        }
+
+        [HttpPost]
+
+        public IActionResult adduserjq(JobInformation jobInformation)
+        {
+            var aa = jobService.addjob(jobInformation);
+            return Json(new
+            {
+                data = aa
+            });
+        }
+
     }
 }

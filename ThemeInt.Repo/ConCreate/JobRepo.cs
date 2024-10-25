@@ -12,9 +12,9 @@ namespace ThemeInt.Repo.ConCreate
 	{
 		private readonly JobPortalEfContext jobPortalEfContext;
 
-		public JobRepo()
+		public JobRepo(JobPortalEfContext jobPortalEf)
 		{
-			jobPortalEfContext = new JobPortalEfContext();
+			jobPortalEfContext = jobPortalEf;
 		}
 		   
 		public bool addjob(JobMaster job)
@@ -45,7 +45,8 @@ namespace ThemeInt.Repo.ConCreate
         {
             var a = jobPortalEfContext.JobMasters.Where(x => x.JobId == jobMaster.JobId).FirstOrDefault();
 			if(a!= null) { 
-			a.JobType = jobMaster.JobType;
+			a.JobTitle = jobMaster.JobTitle;
+			a.JobTypeId = jobMaster.JobTypeId;
 			a.JobDiscription = jobMaster.JobDiscription;
 			a.JobTypeId = jobMaster.JobTypeId;
 			return jobPortalEfContext.SaveChanges() > 0 ? true : false;

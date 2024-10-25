@@ -15,9 +15,9 @@ namespace ThemeInt.BussinesService.ConCreate
     {
         private readonly IJobRepo jobRepo;
 
-        public JobService()
+        public JobService(IJobRepo _jobRepo)
         {
-            jobRepo = new JobRepo();
+            jobRepo = _jobRepo;
         }
 
 		public bool addjob(JobInformation job)
